@@ -1,0 +1,22 @@
+body{
+background:#0f172a;
+color:white;
+font-family:Arial;
+margin:0;
+}
+
+.hero{
+text-align:center;
+padding-top:150px;
+}
+
+.hero h1{
+font-size:70px;
+font-weight:bold;
+}
+
+.hero p{
+font-size:28px;
+margin-top:20px;
+margin-bottom:30px;
+}
