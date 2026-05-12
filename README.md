@@ -69,16 +69,6 @@ A hands-on repository showcasing DevOps practices, automation scripts, and infra
 
 ---
 
-## 📊 Language Proficiency
-
-Based on my recent projects:
-- **Dockerfile** - 3.5%
-- **Java** - 17.8%
-- **HTML** - 74%
-- **CSS** - 4.7%
-
----
-
 ## 🌱 My DevOps Journey
 
 As an aspiring DevOps engineer, I'm committed to:
