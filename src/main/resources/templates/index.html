@@ -2,94 +2,687 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DevOps Portfolio</title>
+    <title>Rajesh | DevOps Engineer Portfolio</title>
 
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
+    <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Poppins',sans-serif;
+            background:#020617;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+            background:rgba(0,0,0,0.7);
+            backdrop-filter:blur(10px);
+            padding:15px 0;
+        }
+
+        .navbar-brand{
+            font-weight:700;
+            font-size:24px;
+        }
+
+        .nav-link{
+            color:white !important;
+            margin-left:20px;
+            transition:0.3s;
+        }
+
+        .nav-link:hover{
+            color:#38bdf8 !important;
+        }
+
+        /* HERO */
+
+        .hero{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            background:
+                linear-gradient(rgba(2,6,23,0.85),rgba(2,6,23,0.9)),
+                url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=2070');
+            background-size:cover;
+            background-position:center;
+            padding:100px 20px;
+        }
+
+        .hero-card{
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.1);
+            backdrop-filter:blur(10px);
+            border-radius:30px;
+            padding:50px;
+            max-width:900px;
+            width:100%;
+            box-shadow:0 8px 40px rgba(0,0,0,0.5);
+            animation:fadeUp 1s ease;
+        }
+
+        .profile-img{
+            width:220px;
+            height:220px;
+            object-fit:cover;
+            border-radius:50%;
+            border:5px solid #38bdf8;
+            box-shadow:0 0 30px rgba(56,189,248,0.5);
+            transition:0.4s;
+        }
+
+        .profile-img:hover{
+            transform:scale(1.05);
+        }
+
+        .hero h1{
+            font-size:4rem;
+            font-weight:800;
+        }
+
+        .hero p{
+            color:#cbd5e1;
+            font-size:1.2rem;
+        }
+
+        .highlight{
+            color:#38bdf8;
+        }
+
+        /* BUTTONS */
+
+        .btn-custom{
+            padding:14px 28px;
+            border-radius:14px;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .btn-custom:hover{
+            transform:translateY(-5px);
+        }
+
+        /* SECTION */
+
+        section{
+            padding:90px 0;
+        }
+
+        .section-title{
+            text-align:center;
+            margin-bottom:60px;
+        }
+
+        .section-title h2{
+            font-size:2.7rem;
+            font-weight:700;
+        }
+
+        .section-title p{
+            color:#94a3b8;
+        }
+
+        /* CARDS */
+
+        .custom-card{
+            background:rgba(255,255,255,0.05);
+            border-radius:25px;
+            padding:35px;
+            border:1px solid rgba(255,255,255,0.08);
+            transition:0.4s;
+            height:100%;
+        }
+
+        .custom-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 10px 35px rgba(0,0,0,0.5);
+        }
+
+        /* SKILLS */
+
+        .skill-badge{
+            padding:12px 20px;
+            border-radius:12px;
+            font-size:15px;
+            margin:8px;
+            display:inline-block;
+            transition:0.3s;
+        }
+
+        .skill-badge:hover{
+            transform:scale(1.08);
+        }
+
+        /* TIMELINE */
+
+        .timeline{
+            border-left:3px solid #38bdf8;
+            padding-left:30px;
+        }
+
+        .timeline-item{
+            margin-bottom:40px;
+        }
+
+        .timeline-item h5{
+            color:#38bdf8;
+        }
+
+        /* PROJECTS */
+
+        .project-card img{
+            border-radius:20px;
+            margin-bottom:20px;
+        }
+
+        /* CONTACT */
+
+        .contact-box{
+            text-align:center;
+            padding:40px;
+            border-radius:25px;
+            background:rgba(255,255,255,0.05);
+        }
+
+        .contact-box i{
+            font-size:40px;
+            margin-bottom:20px;
+            color:#38bdf8;
+        }
+
+        /* FOOTER */
+
+        footer{
+            background:black;
+            text-align:center;
+            padding:30px;
+            color:#94a3b8;
+        }
+
+        /* ANIMATION */
+
+        @keyframes fadeUp{
+            from{
+                opacity:0;
+                transform:translateY(40px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        @media(max-width:768px){
+
+            .hero h1{
+                font-size:2.5rem;
+            }
+
+            .profile-img{
+                width:170px;
+                height:170px;
+            }
+
+            .hero-card{
+                padding:30px;
+            }
+        }
+
+    </style>
 </head>
 
-<body class="bg-dark text-white">
+<body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+    <!-- NAVBAR -->
 
-    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
 
-        <a class="navbar-brand fw-bold" href="/">
-            DevOps Portfolio
-        </a>
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-server"></i> Rajesh Portfolio
+            </a>
 
-	
-        <div>
-            <a class="btn btn-outline-light me-2" href="/">Home</a>
-            <a class="btn btn-outline-warning" href="/projects">Projects</a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navMenu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#journey">Journey</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-card">
+
+            <!-- ADD YOUR IMAGE -->
+            <img src="/images/rajesh.png"
+                 alt="Rajesh"
+                 class="profile-img mb-4">
+
+            <h1>
+                Hi, I'm <span class="highlight">Rajesh</span>
+            </h1>
+
+            <h3 class="mb-4 text-info">
+                DevOps Engineer | Cloud Automation | CI/CD | Docker | Kubernetes
+            </h3>
+
+            <p class="mb-5">
+                Passionate about Infrastructure Automation, Cloud Technologies,
+                Containerization, and Building Scalable CI/CD Pipelines.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <a href="https://github.com/devrajesh16"
+                   target="_blank"
+                   class="btn btn-dark btn-custom">
+
+                    <i class="fab fa-github"></i> GitHub
+
+                </a>
+
+                <a href="https://www.linkedin.com/in/rajesh-sheribhai-244684249"
+                   target="_blank"
+                   class="btn btn-primary btn-custom">
+
+                    <i class="fab fa-linkedin"></i> LinkedIn
+
+                </a>
+
+                <a href="#projects"
+                   class="btn btn-warning btn-custom">
+
+                    <i class="fas fa-code"></i> Projects
+
+                </a>
+
+            </div>
+
         </div>
 
-    </div>
+    </section>
 
-</nav>
+    <!-- ABOUT -->
 
-<!-- HERO SECTION -->
-<div class="mt-4">
+    <section id="about">
 
-    <a href="https://github.com/devrajesh16" target="_blank" class="btn btn-outline-light me-2">
-        GitHub
-    </a>
+        <div class="container">
 
-    <a href="https://www.linkedin.com/in/rajesh-sheribhai-244684249" target="_blank" class="btn btn-outline-info">
-        LinkedIn
-    </a>
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Who I Am</p>
+            </div>
 
-</div>
-<section class="text-center py-5">
+            <div class="row">
 
-    <h1 class="display-4 fw-bold">Hi, I'm Rajesh 👋</h1>
+                <div class="col-lg-10 mx-auto">
 
-    <p class="lead text-secondary">
-    Aspiring DevOps Engineer | CI/CD Automation
-    </p>
+                    <div class="custom-card">
 
-    <a href="/projects" class="btn btn-warning btn-lg mt-3">
-        View My Projects
-    </a>
+                        <p class="fs-5 text-light">
 
-</section>
+                            I am an aspiring DevOps Engineer passionate about
+                            automation, cloud infrastructure, and scalable deployments.
 
-<!-- ABOUT SECTION -->
-<section class="container py-5">
+                            I have hands-on experience with Linux, Docker, Jenkins,
+                            GitHub Actions, Ansible, Kubernetes, AWS, and Terraform.
 
-    <h2 class="mb-4">About Me</h2>
+                            I enjoy building CI/CD pipelines, automating deployments,
+                            and learning modern DevOps tools to improve system reliability
+                            and efficiency.
 
-    <p class="text-secondary">
-        I am an aspiring DevOps Engineer with strong interest in automation, cloud computing,
-        and CI/CD pipelines. I am currently learning AWS, Docker, and Jenkins
-        to build real-world production-ready applications.
-    </p>
+                        </p>
 
-</section>
+                    </div>
 
-<!-- SKILLS SECTION -->
-<section class="container py-5">
+                </div>
 
-    <h2 class="mb-4">Skills</h2>
+            </div>
 
-    <div class="d-flex flex-wrap gap-2">
+        </div>
 
-        <span class="badge bg-warning text-dark p-2">Docker</span>
-        <span class="badge bg-info text-dark p-2">Jenkins</span>
-        <span class="badge bg-danger p-2">AWS</span>
-        <span class="badge bg-secondary p-2">Linux</span>
-        <span class="badge bg-light text-dark p-2">Git & GitHub</span>
+    </section>
 
-    </div>
+    <!-- SKILLS -->
 
-</section>
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Skills & Technologies</h2>
+                <p>Tech Stack</p>
+            </div>
+
+            <div class="custom-card text-center">
+
+                <span class="badge bg-primary skill-badge">
+                    <i class="fab fa-docker"></i> Docker
+                </span>
+
+                <span class="badge bg-info skill-badge">
+                    Kubernetes
+                </span>
+
+                <span class="badge bg-danger skill-badge">
+                    Jenkins
+                </span>
+
+                <span class="badge bg-warning text-dark skill-badge">
+                    AWS
+                </span>
+
+                <span class="badge bg-success skill-badge">
+                    GitHub Actions
+                </span>
+
+                <span class="badge bg-secondary skill-badge">
+                    Linux
+                </span>
+
+                <span class="badge bg-dark skill-badge">
+                    Bash Scripting
+                </span>
+
+                <span class="badge bg-primary skill-badge">
+                    Terraform
+                </span>
+
+                <span class="badge bg-warning text-dark skill-badge">
+                    Ansible
+                </span>
+
+                <span class="badge bg-info skill-badge">
+                    Git & GitHub
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+                <p>My DevOps Work</p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-6">
+
+                    <div class="custom-card project-card">
+
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000"
+                             class="img-fluid">
+
+                        <h4>Netflix Clone CI/CD Pipeline</h4>
+
+                        <p class="text-secondary">
+
+                            Built and deployed a Netflix clone using Jenkins,
+                            Docker, GitHub, and AWS EC2 with automated CI/CD.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="custom-card project-card">
+
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000"
+                             class="img-fluid">
+
+                        <h4>Kubernetes Deployment Project</h4>
+
+                        <p class="text-secondary">
+
+                            Containerized applications using Docker and deployed
+                            them into Kubernetes clusters with scaling.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="custom-card project-card">
+
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000"
+                             class="img-fluid">
+
+                        <h4>Ansible Automation</h4>
+
+                        <p class="text-secondary">
+
+                            Automated Linux server configuration and deployments
+                            using Ansible playbooks and roles.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="custom-card project-card">
+
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000"
+                             class="img-fluid">
+
+                        <h4>Terraform AWS Infrastructure</h4>
+
+                        <p class="text-secondary">
+
+                            Provisioned EC2, VPC, and Security Groups using
+                            Terraform Infrastructure as Code.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- JOURNEY -->
+
+    <section id="journey">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Learning Journey</h2>
+                <p>Continuous Growth</p>
+            </div>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <h5>Linux & Git</h5>
+                    <p class="text-secondary">
+                        Started learning Linux administration and Git version control.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h5>Docker & Jenkins</h5>
+                    <p class="text-secondary">
+                        Built CI/CD pipelines and containerized applications.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h5>Kubernetes & AWS</h5>
+                    <p class="text-secondary">
+                        Exploring orchestration, scaling, and cloud deployment.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h5>Terraform & Monitoring</h5>
+                    <p class="text-secondary">
+                        Learning Infrastructure as Code and monitoring tools.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p>Let's Connect</p>
+            </div>
+
+            <div class="contact-box">
+
+                <i class="fas fa-envelope"></i>
+
+                <h4 class="mb-3">
+                    Open to DevOps Opportunities
+                </h4>
+
+                <p class="text-secondary mb-4">
+                    Looking for internships and entry-level DevOps roles.
+                </p>
+
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                    <a href="mailto:yourmail@gmail.com"
+                       class="btn btn-primary btn-custom">
+
+                        <i class="fas fa-envelope"></i> Email
+
+                    </a>
+
+                    <a href="https://github.com/devrajesh16"
+                       target="_blank"
+                       class="btn btn-dark btn-custom">
+
+                        <i class="fab fa-github"></i> GitHub
+
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/rajesh-sheribhai-244684249"
+                       target="_blank"
+                       class="btn btn-info btn-custom">
+
+                        <i class="fab fa-linkedin"></i> LinkedIn
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Rajesh | DevOps Engineer Portfolio
+        </p>
+
+        <p>
+            Built with ❤️ using HTML, CSS & Bootstrap
+        </p>
+
+    </footer>
+
+    <!-- BOOTSTRAP JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

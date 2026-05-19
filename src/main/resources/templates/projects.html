@@ -2,74 +2,574 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Projects</title>
+    <title>Rajesh | DevOps Projects</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            background:#020617;
+            color:white;
+            font-family:'Poppins',sans-serif;
+            overflow-x:hidden;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+            background:rgba(0,0,0,0.7);
+            backdrop-filter:blur(10px);
+            padding:15px 0;
+        }
+
+        .navbar-brand{
+            font-size:24px;
+            font-weight:700;
+        }
+
+        .nav-link{
+            color:white !important;
+            margin-left:20px;
+            transition:0.3s;
+        }
+
+        .nav-link:hover{
+            color:#38bdf8 !important;
+        }
+
+        /* HERO */
+
+        .hero-section{
+            min-height:50vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            background:
+                linear-gradient(rgba(2,6,23,0.85),rgba(2,6,23,0.9)),
+                url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=2070');
+            background-size:cover;
+            background-position:center;
+            padding-top:100px;
+        }
+
+        .hero-section h1{
+            font-size:4rem;
+            font-weight:800;
+        }
+
+        .subtitle{
+            color:#cbd5e1;
+            font-size:1.2rem;
+        }
+
+        /* SECTION */
+
+        section{
+            padding:80px 0;
+        }
+
+        /* PROJECT GRID */
+
+        .projects-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+            gap:30px;
+        }
+
+        /* PROJECT CARD */
+
+        .project-card{
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:25px;
+            padding:30px;
+            transition:0.4s;
+            height:100%;
+        }
+
+        .project-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .project-icon{
+            font-size:2.5rem;
+            margin-bottom:20px;
+        }
+
+        .project-card h4{
+            font-weight:700;
+            margin-bottom:15px;
+        }
+
+        .project-card p{
+            color:#cbd5e1;
+            line-height:1.7;
+        }
+
+        /* TAGS */
+
+        .tag{
+            display:inline-block;
+            padding:8px 16px;
+            margin:5px;
+            border-radius:12px;
+            background:#0f172a;
+            border:1px solid rgba(255,255,255,0.08);
+            font-size:14px;
+            transition:0.3s;
+        }
+
+        .tag:hover{
+            transform:scale(1.05);
+        }
+
+        /* BUTTON */
+
+        .btn-custom{
+            padding:12px 24px;
+            border-radius:12px;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .btn-custom:hover{
+            transform:translateY(-3px);
+        }
+
+        /* COMING SOON */
+
+        .coming-card{
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.08);
+            border-radius:20px;
+            padding:35px;
+            text-align:center;
+            transition:0.4s;
+        }
+
+        .coming-card:hover{
+            transform:translateY(-8px);
+        }
+
+        /* CTA */
+
+        .cta-section{
+            background:linear-gradient(135deg,#0f172a,#111827);
+            text-align:center;
+            border-top:1px solid rgba(255,255,255,0.08);
+            border-bottom:1px solid rgba(255,255,255,0.08);
+        }
+
+        /* FOOTER */
+
+        footer{
+            background:black;
+            text-align:center;
+            padding:30px;
+            color:#94a3b8;
+        }
+
+        footer a{
+            color:#38bdf8;
+            text-decoration:none;
+        }
+
+        /* ANIMATION */
+
+        @keyframes fadeUp{
+            from{
+                opacity:0;
+                transform:translateY(40px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        .project-card{
+            animation:fadeUp 0.8s ease;
+        }
+
+        @media(max-width:768px){
+
+            .hero-section h1{
+                font-size:2.5rem;
+            }
+
+        }
+
+    </style>
 
 </head>
 
-<body class="bg-dark text-white">
+<body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-dark bg-dark">
+    <!-- NAVBAR -->
 
-    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 
-        <a class="navbar-brand" href="/">Rajesh Portfolio</a>
+        <div class="container">
 
-        <a class="btn btn-outline-light" href="/">Home</a>
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-server"></i> Rajesh Portfolio
+            </a>
 
-    </div>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navMenu">
 
-</nav>
+                <span class="navbar-toggler-icon"></span>
 
-<!-- PROJECTS -->
-<div class="container mt-5">
+            </button>
 
-    <h1 class="mb-4">My DevOps Projects</h1>
+            <div class="collapse navbar-collapse" id="navMenu">
 
-    <div class="row">
+                <ul class="navbar-nav ms-auto">
 
-        <div class="col-md-4">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
 
-            <div class="card p-3 text-dark">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/projects">Projects</a>
+                    </li>
 
-                <h4>Spring Boot Website</h4>
-                <p>My personal portfolio built using Java Spring Boot.</p>
-
-            </div>
-
-        </div>
-
-        <div class="col-md-4">
-
-            <div class="card p-3 text-dark">
-
-                <h4>Docker Project</h4>
-                <p>Containerized Java application using Docker.</p>
+                </ul>
 
             </div>
 
         </div>
 
-        <div class="col-md-4">
+    </nav>
 
-            <div class="card p-3 text-dark">
+    <!-- HERO -->
 
-                <h4>Jenkins CI/CD</h4>
-                <p>Automated build and deployment pipeline.</p>
+    <section class="hero-section">
+
+        <div class="container">
+
+            <h1>
+                <i class="fas fa-folder-open text-info"></i>
+                My DevOps Projects
+            </h1>
+
+            <p class="subtitle mt-3">
+                Real-world projects focused on CI/CD, Automation,
+                Cloud Infrastructure, and Containerization.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="projects-grid">
+
+                <!-- PROJECT -->
+
+                <div class="project-card">
+
+                    <i class="fab fa-java project-icon text-info"></i>
+
+                    <h4>Spring Boot Portfolio</h4>
+
+                    <p>
+                        Built a modern DevOps portfolio using Spring Boot,
+                        Bootstrap, and responsive UI design.
+                    </p>
+
+                    <div class="mt-4">
+
+                        <span class="tag">Java</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">Bootstrap</span>
+                        <span class="tag">REST API</span>
+
+                    </div>
+
+                </div>
+
+                <!-- PROJECT -->
+
+                <div class="project-card">
+
+                    <i class="fab fa-docker project-icon text-primary"></i>
+
+                    <h4>Docker Containerization</h4>
+
+                    <p>
+                        Containerized Java applications using Docker with
+                        optimized Dockerfiles and production deployment setup.
+                    </p>
+
+                    <div class="mt-4">
+
+                        <span class="tag">Docker</span>
+                        <span class="tag">Containers</span>
+                        <span class="tag">Images</span>
+                        <span class="tag">Deployment</span>
+
+                    </div>
+
+                </div>
+
+                <!-- PROJECT -->
+
+                <div class="project-card">
+
+                    <i class="fas fa-cogs project-icon text-warning"></i>
+
+                    <h4>Jenkins CI/CD Pipeline</h4>
+
+                    <p>
+                        Automated build, testing, and deployment workflows
+                        using Jenkins pipelines and GitHub integration.
+                    </p>
+
+                    <div class="mt-4">
+
+                        <span class="tag">Jenkins</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">Groovy</span>
+
+                    </div>
+
+                </div>
+
+                <!-- PROJECT -->
+
+                <div class="project-card">
+
+                    <i class="fab fa-linux project-icon text-success"></i>
+
+                    <h4>Linux Administration</h4>
+
+                    <p>
+                        Worked on Linux system administration, user management,
+                        permissions, monitoring, and shell scripting.
+                    </p>
+
+                    <div class="mt-4">
+
+                        <span class="tag">Linux</span>
+                        <span class="tag">Bash</span>
+                        <span class="tag">Shell</span>
+                        <span class="tag">Admin</span>
+
+                    </div>
+
+                </div>
+
+                <!-- PROJECT -->
+
+                <div class="project-card">
+
+                    <i class="fas fa-network-wired project-icon text-danger"></i>
+
+                    <h4>Ansible Automation</h4>
+
+                    <p>
+                        Automated server configuration and deployments using
+                        Ansible playbooks and inventory management.
+                    </p>
+
+                    <div class="mt-4">
+
+                        <span class="tag">Ansible</span>
+                        <span class="tag">Playbooks</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">IaC</span>
+
+                    </div>
+
+                </div>
+
+                <!-- PROJECT -->
+
+                <div class="project-card">
+
+                    <i class="fab fa-git-alt project-icon text-warning"></i>
+
+                    <h4>Git & GitHub Workflows</h4>
+
+                    <p>
+                        Implemented Git branching strategies, pull requests,
+                        version control, and collaborative workflows.
+                    </p>
+
+                    <div class="mt-4">
+
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub</span>
+                        <span class="tag">Workflow</span>
+                        <span class="tag">Version Control</span>
+
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</div>
+    <!-- COMING SOON -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="fw-bold">
+                    <i class="fas fa-rocket text-info"></i>
+                    Next Projects
+                </h2>
+
+                <p class="text-secondary">
+                    Technologies I am currently learning
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <div class="coming-card">
+
+                        <i class="fas fa-dharmachakra text-info"
+                           style="font-size:3rem;"></i>
+
+                        <h4 class="mt-4">Kubernetes</h4>
+
+                        <p class="text-secondary">
+                            Container orchestration and scaling applications.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="coming-card">
+
+                        <i class="fas fa-map text-danger"
+                           style="font-size:3rem;"></i>
+
+                        <h4 class="mt-4">Terraform</h4>
+
+                        <p class="text-secondary">
+                            Infrastructure as Code using AWS cloud resources.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="coming-card">
+
+                        <i class="fab fa-aws text-warning"
+                           style="font-size:3rem;"></i>
+
+                        <h4 class="mt-4">AWS Cloud</h4>
+
+                        <p class="text-secondary">
+                            Cloud deployments, EC2, S3, IAM, and monitoring.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+
+    <section class="cta-section">
+
+        <div class="container">
+
+            <h2 class="fw-bold mb-4">
+                Open to DevOps Opportunities
+            </h2>
+
+            <p class="text-secondary mb-4">
+                Looking for internships and entry-level DevOps Engineer roles.
+            </p>
+
+            <a href="mailto:yourmail@gmail.com"
+               class="btn btn-primary btn-custom">
+
+                <i class="fas fa-envelope"></i>
+                Contact Me
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Rajesh | DevOps Engineer Portfolio
+        </p>
+
+        <p class="mt-2">
+            Built with ❤️ using Spring Boot & Bootstrap
+        </p>
+
+    </footer>
+
+    <!-- BOOTSTRAP -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
