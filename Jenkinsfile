@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     tools {
-        maven 'maven3.9.16'
-        jdk 'java21'
+        maven 'maven3.9.14'
+        jdk 'java17'
     }
 
     environment {
-        DOCKER_IMAGE = 'devopstraining064/project4-demo-dockerimage:33'
+        DOCKER_IMAGE = 'sher16/portfolio-app:latest'
         EKS_CLUSTER = 'mycompany-dev-eks'
-        AWS_REGION = 'us-east-1'
+        AWS_REGION = 'ap-south-1'
         NAMESPACE = 'default'
         AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
