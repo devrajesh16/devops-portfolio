@@ -1,0 +1,64 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'maven3.9.16'
+        jdk 'java21'
+    }
+
+    environment {
+        DOCKER_IMAGE = 'devopstraining064/project4-demo-dockerimage:33'
+        EKS_CLUSTER = 'mycompany-dev-eks'
+        AWS_REGION = 'us-east-1'
+        NAMESPACE = 'default'
+        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build Application') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh "docker build -t ${env.DOCKER_IMAGE} ."
+            }
+        }
+
+        stage('Push Docker Image to Docker Hub') {
+            steps {
+                withDockerRegistry(credentialsId: 'dockerhub-credentials', url: 'https://index.docker.io/v1/') {
+                    sh "docker push ${env.DOCKER_IMAGE}"
+                }
+            }
+        }
+
+        stage('Deploy to EKS') {
+            steps {
+                sh '''
+                    aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
+                    aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
+                    aws configure set default.region "$AWS_REGION"
+                    aws eks update-kubeconfig --region "$AWS_REGION" --name "$EKS_CLUSTER"
+                    kubectl get nodes
+                    kubectl apply -f kubernetes/namespace.yaml
+                    kubectl apply -f kubernetes/configmap.yaml
+                    kubectl apply -f kubernetes/secret.yaml
+                    kubectl apply -f kubernetes/deployment.yaml
+                    kubectl apply -f kubernetes/service.yaml
+                    kubectl apply -f kubernetes/hpa.yaml
+                    kubectl apply -f kubernetes/ingress.yaml
+                '''
+            }
+        }
+    }
+}
