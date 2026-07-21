@@ -68,12 +68,12 @@ pipeline {
                         kubectl get nodes
 
                         kubectl apply -f kubernetes/namespace.yaml
-                        kubectl apply -f kubernetes/configmap.yml
-                        kubectl apply -f kubernetes/secret.yml
-                        kubectl apply -f kubernetes/deployment.yml
-                        kubectl apply -f kubernetes/service.yml
-                        kubectl apply -f kubernetes/hpa.yml
-                        kubectl apply -f kubernetes/ingress.yml
+                        kubectl apply -f kubernetes/configmap.yaml
+                        kubectl apply -f kubernetes/secret.yaml
+                        kubectl apply -f kubernetes/deployment.yaml
+                        kubectl apply -f kubernetes/service.yaml
+                        kubectl apply -f kubernetes/hpa.yaml
+                        kubectl apply -f kubernetes/ingress.yaml
 
                         kubectl get pods -n $NAMESPACE
                         kubectl get svc -n $NAMESPACE
