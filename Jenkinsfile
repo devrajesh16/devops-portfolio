@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Push Docker Image to Docker Hub') {
             steps {
-                withDockerRegistry(credentialsId: 'dockerhub-credentials', url: 'https:**index.docker.io/v1/'){
+                withDockerRegistry(credentialsId: 'dockerhub-credentials', url: 'https://index.docker.io/v1/') {
                     sh 'docker push $DOCKER_IMAGE'
                 }
             }
@@ -36,7 +36,7 @@ pipeline {
         stage('Deploy to EKS') {
             steps {
                 sh '''
-                    aws eks update-kubeconfig -*region ap-south-1 -*name $EKS_CLUSTER
+                    aws eks update-kubeconfig --region ap-south-1 --name $EKS_CLUSTER
                     kubectl get nodes
                     kubectl apply -f kubernetes/namespace.yaml
                     kubectl apply -f kubernetes/configmap.yml
