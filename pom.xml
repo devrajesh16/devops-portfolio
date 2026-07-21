@@ -97,7 +97,7 @@
         <snapshotRepository>
             <id>portfolio-snapshots</id>
             <name>Portfolio Snapshots</name>
-            <url>http://http://15.252.19.186:8081/repository/portfolio-snapshots/</url>
+            <url>http://http://13.233.156.250:8081/repository/portfolio-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
