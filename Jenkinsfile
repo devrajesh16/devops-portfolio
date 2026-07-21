@@ -74,17 +74,27 @@ pipeline {
                         kubectl apply -f kubernetes/service.yml
                         kubectl apply -f kubernetes/hpa.yml
                         kubectl apply -f kubernetes/ingress.yml
+
+                        kubectl get pods -n $NAMESPACE
+                        kubectl get svc -n $NAMESPACE
+                        kubectl get ingress -n $NAMESPACE
                     '''
                 }
             }
         }
     }
+
+    post {
         success {
             echo 'Pipeline executed successfully.'
         }
 
         failure {
             echo 'Pipeline execution failed.'
+        }
+
+        always {
+            cleanWs()
         }
     }
 }
